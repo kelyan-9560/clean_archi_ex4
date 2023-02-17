@@ -1,4 +1,5 @@
-import common.File;
+package parser;
+
 import exception.ParsingException;
 
 import java.io.BufferedReader;
@@ -6,11 +7,9 @@ import java.io.FileReader;
 import java.util.ArrayList;
 
 public class InputParser {
-    final File file;
     final String filePath;
 
-    public InputParser(File file, String filePath) {
-        this.file = file;
+    public InputParser(String filePath) {
         this.filePath = filePath;
     }
 

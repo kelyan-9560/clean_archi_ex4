@@ -5,12 +5,6 @@ import java.util.Map;
 
 public class CalculService {
 
-    public static Map<String, String> operators = Map.of(
-            "+", "ADDITION",
-            "-", "SUBTRACTION",
-            "*", "MULTIPLICATION"
-    );
-
     private Integer add(Integer a, Integer b) {
         return a + b;
     }

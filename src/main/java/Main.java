@@ -1,20 +1,14 @@
-import common.File;
+import parser.InputParser;
 import services.CalculService;
 
 public class Main {
     public static void main(String[] args) {
-
-        File file = File.of("C:\\Users\\kekeb\\Documents\\ESGI\\5eme_annee\\clean_architecture\\clean_archi_ex04\\clean_archi_ex4\\src\\main\\java\\input", "numbers.txt");
-        String operator = "-";
-
-        InputParser inputParser = new InputParser(file, "C:\\Users\\kekeb\\Documents\\ESGI\\5eme_annee\\clean_architecture\\clean_archi_ex04\\clean_archi_ex4\\src\\main\\java\\input\\numbers.txt");
-
+        InputParser inputParser = new InputParser("C:\\Users\\kekeb\\Documents\\ESGI\\5eme_annee\\clean_architecture\\clean_archi_ex04\\clean_archi_ex4\\src\\main\\java\\input\\numbers.txt");
+        String operator = "+";
 
         var fileContent = inputParser.read();
-        System.out.println(fileContent);
 
         CalculService calculService = new CalculService();
-
         Integer result = 0;
         switch (operator){
             case "+":
@@ -31,7 +25,7 @@ public class Main {
                 break;
         }
 
-        System.out.println("---------");
-        System.out.println("total = " + result + " " + "(" + CalculService.operators.get(operator) + ")");
+        Output output = Output.of(fileContent, operator, result);
+        output.constructOutput();
     }
 }
